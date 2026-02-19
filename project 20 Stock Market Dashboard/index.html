@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo animated-logo">📈 Stock Dashboard</h1>
+                <div class="controls-container">
+                    <div class="currency-toggle">
+                        <button id="currencyToggle" class="currency-btn active">USD</button>
+                        <span class="toggle-separator">|</span>
+                        <button id="currencyToggleINR" class="currency-btn">INR</button>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" id="stockSearch" placeholder="Search stocks (e.g., AAPL, GOOGL)">
+                        <button id="searchBtn" class="search-btn">🔍 Search</button>
+                    </div>
+                </div>
+                <div class="market-status">
+                    <span id="marketStatus" class="status-open pulse">🟢 Market Open</span>
+                    <span id="lastUpdated" class="fade-in">Last updated: --</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Summary Cards Section -->
+        <section class="summary-cards">
+            <div class="card price-card slide-in" id="priceCard">
+                <div class="card-icon">💰</div>
+                <h3>Current Price</h3>
+                <div class="metric-value" id="currentPrice">$0.00</div>
+                <div class="metric-value-inr" id="currentPriceINR">₹0.00</div>
+                <div class="metric-change" id="priceChange">+0.00 (0.00%)</div>
+            </div>
+            <div class="card volume-card slide-in" id="volumeCard">
+                <div class="card-icon">📊</div>
+                <h3>Volume</h3>
+                <div class="metric-value" id="volume">0</div>
+                <div class="metric-label">Shares Traded</div>
+            </div>
+            <div class="card high-card slide-in" id="highCard">
+                <div class="card-icon">📈</div>
+                <h3>Day High</h3>
+                <div class="metric-value" id="dayHigh">$0.00</div>
+                <div class="metric-value-inr" id="dayHighINR">₹0.00</div>
+            </div>
+            <div class="card low-card slide-in" id="lowCard">
+                <div class="card-icon">📉</div>
+                <h3>Day Low</h3>
+                <div class="metric-value" id="dayLow">$0.00</div>
+                <div class="metric-value-inr" id="dayLowINR">₹0.00</div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-container price-chart-container fade-in">
+                <div class="chart-header">
+                    <h3>📈 Price Trend</h3>
+                    <div class="chart-indicator"></div>
+                </div>
+                <canvas id="priceChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-container volume-chart-container fade-in">
+                <div class="chart-header">
+                    <h3>📊 Volume Chart</h3>
+                    <div class="chart-indicator volume-indicator"></div>
+                </div>
+                <canvas id="volumeChart" width="800" height="200"></canvas>
+            </div>
+        </section>
+
+        <!-- Stock Table Section -->
+        <section class="stock-table-section">
+            <h3>Stock Watchlist</h3>
+            <div class="table-container">
+                <table id="stockTable">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Company</th>
+                            <th>Price</th>
+                            <th>Change</th>
+                            <th>Volume</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stockTableBody">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Demo data for educational purposes | Built with HTML, CSS, JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
